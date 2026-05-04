@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Root from './components/Root/Root.jsx'
 import Home from './components/Pages/Home.jsx'
+import Statics from "./components/Pages/Statics.jsx"
+import Dashboard from "./components/Pages/Dashboard.jsx"
+import Gadgets from "./components/Gadgets/Gadgets.jsx"
+
 
 const router = createBrowserRouter([
   {
@@ -13,13 +16,34 @@ const router = createBrowserRouter([
     errorElement: <h3 className='font-bold text-5xl'>404 not found, go back</h3>,
     children: [
       {
-        index: true,
-        Component: Home
+        path: "/",
+        loader: () => fetch('/category.json'),
+        Component: Home,
+        children: [
+          {
+            index: "true",
+            loader: ()=> fetch("/gadgets.json"), 
+            Component: Gadgets
+          },
+          {
+            path: "/category/:category",
+            loader: ()=> fetch("/gadgets.json"), 
+            Component: Gadgets
+          }
+        ]
+      },
+      {
+        path: "statics",
+        Component: Statics
+      },
+      {
+        path: "dashboard",
+        Component: Dashboard
       }
     ]
   }
 ])
 
 createRoot(document.getElementById('root')).render(
-<RouterProvider router={router} />
+  <RouterProvider router={router} />
 )
