@@ -7,6 +7,7 @@ import Home from './components/Pages/Home.jsx'
 import Statics from "./components/Pages/Statics.jsx"
 import Dashboard from "./components/Pages/Dashboard.jsx"
 import Gadgets from "./components/Gadgets/Gadgets.jsx"
+import GadgetDetails from './components/Gadgets/GadgetDetails.jsx'
 
 
 const router = createBrowserRouter([
@@ -22,15 +23,20 @@ const router = createBrowserRouter([
         children: [
           {
             index: "true",
-            loader: ()=> fetch("/gadgets.json"), 
+            loader: () => fetch("/gadgets.json"),
             Component: Gadgets
           },
           {
             path: "/category/:category",
-            loader: ()=> fetch("/gadgets.json"), 
+            loader: () => fetch("/gadgets.json"),
             Component: Gadgets
-          }
+          },
         ]
+      },
+      {
+        path: "/products/:product_id",
+        loader: () => fetch('/gadgets.json'),
+        Component: GadgetDetails
       },
       {
         path: "statics",

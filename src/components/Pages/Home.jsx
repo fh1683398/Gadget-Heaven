@@ -8,9 +8,15 @@ import Categories from '../Categories/Categories';
 const Home = () => {
     const categories = useLoaderData()
 
+    const scrollIntoSection = (id) => {
+        document.getElementById(id).scrollIntoView({
+            behavior: "smooth"
+        })
+    }
+
     return (
         <div className='max-w-7xl mx-auto'>
-            <Header></Header>
+            <Header scrollIntoSection={scrollIntoSection}></Header>
             {/* gadget section */}
             <div className='my-10 md:my-25'>
 

@@ -5,13 +5,16 @@ body{
     background-color: #F6F6F6;
     font-family: "Sora", sans-serif;
 }
-a.active{
+.products.active{
     background-color: #8b5cf6;
     /* border-radius: 50px; */
     color: white;
     font-weight: medium;
-
 }
+
 button{
     cursor: pointer;
+}
+a{
+    cursor: pointer
 }

@@ -21,7 +21,6 @@ const Gadgets = () => {
             gadget => gadget.category.toLowerCase() === category
         )
     }
-    console.log(gadgetsData, category, filteredData)
 
     return (
         <div className={filteredData.length === 0 ? "flex items-center justify-center h-full bg-white rounded-lg": 'grid md:grid-cols-3 gap-6 h-full' }>
