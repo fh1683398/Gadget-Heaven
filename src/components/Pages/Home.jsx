@@ -27,7 +27,7 @@ const Home = () => {
                     <div className='lg:col-span-1 lg:sticky top-20 self-start'>
                         <div className='flex flex-wrap justify-center items-center lg:flex-col gap-4 p-4 md:p-6 bg-white rounded-xl'>
                             {
-                                categories.map(category => <Categories category={category}></Categories>)
+                                categories.map(category => <Categories key={category.product_id} category={category}></Categories>)
                             }
                         </div>
                     </div>

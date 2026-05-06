@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false)
+
     const handleOpenMenu = () => {
         setOpenMenu(!openMenu)
     }
@@ -16,7 +17,7 @@ const Navbar = () => {
                     isActive ? "underline text-purple-500 font-semibold" : ""
                 }
             >
-                <li>Home</li>
+                Home
             </NavLink>
 
             <NavLink
@@ -25,7 +26,7 @@ const Navbar = () => {
                     isActive ? "underline text-purple-500 font-semibold" : ""
                 }
             >
-                <li>Statics</li>
+                Statics
             </NavLink>
 
             <NavLink
@@ -34,7 +35,7 @@ const Navbar = () => {
                     isActive ? "underline text-purple-500 font-semibold" : ""
                 }
             >
-                <li>Dashboard</li>
+                Dashboard
             </NavLink>
         </>
     );
@@ -54,7 +55,7 @@ const Navbar = () => {
                                 <button onClick={() => setOpenMenu(!openMenu)}>
                                     <X />
                                 </button>
-                                <div>
+                                <div className='flex flex-col gap-4'>
                                     {links}
                                 </div>
                             </div>

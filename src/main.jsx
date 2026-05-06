@@ -1,13 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 import Root from './components/Root/Root.jsx'
 import Home from './components/Pages/Home.jsx'
 import Statics from "./components/Pages/Statics.jsx"
 import Dashboard from "./components/Pages/Dashboard.jsx"
 import Gadgets from "./components/Gadgets/Gadgets.jsx"
 import GadgetDetails from './components/Gadgets/GadgetDetails.jsx'
+import { Component } from 'lucide-react'
+import Cart from './components/Cart & Wishlist/Cart.jsx'
+import Wishlist from './components/Cart & Wishlist/Wishlist.jsx'
 
 
 const router = createBrowserRouter([
@@ -44,7 +47,21 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        Component: Dashboard
+        Component: Dashboard,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="cart" />
+          },
+          {
+            path: "cart",
+            Component: Cart
+          },
+          {
+            path: "wishlist",
+            Component: Wishlist
+          }
+        ]
       }
     ]
   }
