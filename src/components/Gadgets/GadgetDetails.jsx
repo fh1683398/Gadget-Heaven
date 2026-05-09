@@ -1,7 +1,7 @@
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
-import { getWishlistItems, removeItemFromTheList, setItemInCartList, setItemInWishlist } from '../Utilities/utilities';
+import { getCartItems, getWishlistItems, removeItemFromTheList, setItemInCartList, setItemInWishlist } from '../Utilities/utilities';
 
 const GadgetDetails = () => {
     const [addToCart, setAddToCart] = useState(false)
@@ -38,6 +38,11 @@ const GadgetDetails = () => {
     useEffect(() => {
         const wishList = getWishlistItems()
         setAddToWishlist(wishList.includes(idNum))
+    }, [])
+
+    useEffect(()=> {
+        const cartList = getCartItems()
+        setAddToCart(cartList.includes(idNum))
     }, [])
 
     const allData = useLoaderData()

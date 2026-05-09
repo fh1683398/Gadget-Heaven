@@ -46,7 +46,9 @@ const router = createBrowserRouter([
         Component: Statics
       },
       {
+        id: "dashboard",
         path: "dashboard",
+        loader: () => fetch('/gadgets.json'),
         Component: Dashboard,
         children: [
           {
